@@ -18,6 +18,7 @@ message PaymentRequest {
 message PaymentResponse {
   string status = 1;
   string transaction_id = 2;
+  double amount = 3;
 }
 
 message ListPaymentsRequest {
