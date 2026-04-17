@@ -6,6 +6,7 @@ option go_package = "github.com/medinanurbek/generated-repo/go/payment";
 
 service PaymentService {
   rpc ProcessPayment(PaymentRequest) returns (PaymentResponse);
+  rpc ListPayments(ListPaymentsRequest) returns (ListPaymentsResponse);
 }
 
 message PaymentRequest {
@@ -17,4 +18,13 @@ message PaymentRequest {
 message PaymentResponse {
   string status = 1;
   string transaction_id = 2;
+}
+
+message ListPaymentsRequest {
+  int64 min_amount = 1; // in cents, 0 = unlimited
+  int64 max_amount = 2; // in cents, 0 = unlimited
+}
+
+message ListPaymentsResponse {
+  repeated PaymentResponse payments = 1;
 }
