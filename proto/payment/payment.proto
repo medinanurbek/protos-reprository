@@ -24,6 +24,7 @@ message PaymentResponse {
 message ListPaymentsRequest {
   int64 min_amount = 1; // in cents, 0 = unlimited
   int64 max_amount = 2; // in cents, 0 = unlimited
+  string status = 3;    // "Authorized" или "Declined"
 }
 
 message ListPaymentsResponse {
